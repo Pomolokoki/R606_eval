@@ -1,5 +1,5 @@
 <?php
-    include_once("migrations/migrate.php");
+    include_once "migrations/migrate.php" ;
 ?>
 
 <!DOCTYPE html>
