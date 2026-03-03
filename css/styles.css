@@ -1,0 +1,18 @@
+.crismon {
+    color: crimson;
+}
+
+#invite {
+    font-weight: bold;
+    border: solid 2px crimson;
+    padding: 5px;
+    width: fit-content;
+}
+
+.blackBorder {
+    border: solid black 1px
+}
+
+thead {
+    font-weight: bold;
+}
