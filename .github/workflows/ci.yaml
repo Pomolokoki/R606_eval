@@ -35,7 +35,6 @@ jobs:
         run: |
           composer exec phpunit ./tests
 
-jobs:
   linter:
     runs-on: ubuntu-latest
 
