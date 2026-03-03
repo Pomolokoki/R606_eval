@@ -13,13 +13,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Start Docker Compose
+      - name: Start Docker
         run: |
           docker compose up -d --build
 
       - name: Install composer
         uses: php-actions/composer@v6
-        
+
       - name: Run tests
         run: |
           composer exec phpunit ./tests
