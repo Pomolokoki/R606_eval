@@ -29,7 +29,7 @@
         exit();
     }
 
-    $migrationsFile = __DIR__ . "/migrations.json";
+    $migrationsFile = __DIR__ . "/migrations/migrations.json";
     if (file_exists($migrationsFile)) {
         $migrations = json_decode(file_get_contents($migrationsFile), true);
 
