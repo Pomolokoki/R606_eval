@@ -1,0 +1,45 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  php:
+    build:
+      context: .
+      dockerfile: ./_docker/php/Dockerfile
+    ports:
+      - 8080:80
+    volumes:
+      - ./index.php:/var/www/html/index.php
+      - ./migrations.json:/var/www/html/migrations.json
+      - ./OH.png:/var/www/html/OH.png
+      - ./style.css:/var/www/html/style.css
+      - ./tests:/var/www/html/tests
+    depends_on:
+      - database
+    networks:
+      - net
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8085:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    depends_on:
+      - database
+    networks:
+      - net
+
+
+networks:
+  net:
+    driver: bridge
