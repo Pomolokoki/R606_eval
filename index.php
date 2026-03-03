@@ -1,5 +1,16 @@
 <?php
     include_once "migrations/migrate.php" ;
+
+    try {
+        $pdo = new PDO("mysql:host=localhost;port=3306;dbname=mydb;charset=utf8mb4", 'db_user', 'db_pwd');
+
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo 'Erreur lors de la connexion à la BDD : ' . $e->getMessage();
+        exit();
+    }
+    $data = $pdo->query('SELECT id,text FROM random_text_table')->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -35,11 +46,11 @@
         <tbody>
             <?php $i = 0;
             while (true) {
-                if (!key_exists($i, $d))
+                if (!key_exists($i, $data))
                     break; ?>
                 <tr>
-                    <td class="blackBorder"><?= $d[$i]['id'] ?></td>
-                    <td class="blackBorder"><?= $d[$i]['text'] ?></td>
+                    <td class="blackBorder"><?= $data[$i]['id'] ?></td>
+                    <td class="blackBorder"><?= $data[$i]['text'] ?></td>
                 </tr>
                 <?php $i++;
             } ?>
