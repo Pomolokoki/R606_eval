@@ -31,7 +31,7 @@ make sure you installed the dependencies at the [setup state](#setup)
 
 and then you can run 
 ```bash
-    composer exec phpunit ./tests
+    composer exec phpunit ./src/tests
 ```
 
 ### Linter

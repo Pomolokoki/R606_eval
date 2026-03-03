@@ -1,7 +1,4 @@
 parameters:
 	level: 6
 	paths:
-		- .
-		- tests
-	excludePaths:
-		- vendor
+		- ./src
