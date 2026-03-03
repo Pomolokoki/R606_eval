@@ -4,7 +4,7 @@ $migrationsFile = __DIR__ . "/migrations/migrations.json";
 if (file_exists($migrationsFile)) {
 
     try {
-        $pdo = new PDO("mysql:host=localhost;dbname=mydb;charset=utf8mb4", 'db_user', 'db_pwd');
+        $pdo = new PDO("mysql:host=localhost;port=3306;dbname=mydb;charset=utf8mb4", 'db_user', 'db_pwd');
 
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
@@ -34,4 +34,3 @@ if (file_exists($migrationsFile)) {
         }
     }
 }
-?>
