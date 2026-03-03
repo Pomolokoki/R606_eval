@@ -25,18 +25,16 @@ services:
     networks:
       - net
 
-  pgadmin:
-    image: dpage/pgadmin4
-    ports:
-      - "8085:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
     depends_on:
       - database
-    networks:
-      - net
-
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "8085:80"
 
 networks:
   net:
