@@ -5,6 +5,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydb
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_pwd
     ports:
       - "3306:3306"
 
@@ -15,11 +17,11 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./index.php:/var/www/html/index.php
-      - ./migrations.json:/var/www/html/migrations.json
-      - ./OH.png:/var/www/html/OH.png
-      - ./style.css:/var/www/html/style.css
-      - ./tests:/var/www/html/tests
+      - ./src/index.php:/var/www/html/index.php
+      - ./src/migrations.json:/var/www/html/migrations.json
+      - ./src/OH.png:/var/www/html/OH.png
+      - ./src/style.css:/var/www/html/style.css
+      - ./src/tests:/var/www/html/tests
     depends_on:
       - database
     networks:

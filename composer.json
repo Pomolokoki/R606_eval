@@ -1,0 +1,12 @@
+{
+    "name": "unknown/r606_eval",
+    "require": {
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Unknown\\R606Eval\\": "src/"
+        }
+    }
+}
