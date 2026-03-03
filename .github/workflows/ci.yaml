@@ -1,0 +1,39 @@
+name: PHP Docker Tests (PostgreSQL)
+
+on:
+  push:
+    branches: [develop, main]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start Docker Compose
+        run: |
+          docker compose up -d --build
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install composer
+        uses: php-actions/composer@v6
+
+
+      - name: Install deps
+        run: |
+          composer install
+
+      - name: Run tests
+        run: |
+          composer exec phpunit ./tests
+
+      - name: Run linter
+        run: |
+          composer exec phpstan
