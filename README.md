@@ -33,3 +33,11 @@ and then you can run
 ```bash
     composer exec phpunit ./tests
 ```
+
+### Linter
+make sure you installed the dependencies at the [setup state](#setup)
+
+and then you can run 
+```bash
+    composer exec phpstan
+```
