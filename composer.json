@@ -1,0 +1,11 @@
+{
+    "name": "unknown/r606_eval",
+    "require": {
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Unknown\\R606Eval\\": "src/"
+        }
+    }
+}
