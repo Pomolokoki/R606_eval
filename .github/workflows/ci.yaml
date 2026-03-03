@@ -19,12 +19,7 @@ jobs:
 
       - name: Install composer
         uses: php-actions/composer@v6
-
-
-      - name: Install deps
-        run: |
-          composer install
-
+        
       - name: Run tests
         run: |
           composer exec phpunit ./tests
@@ -38,11 +33,6 @@ jobs:
 
       - name: Install composer
         uses: php-actions/composer@v6
-
-
-      - name: Install deps
-        run: |
-          composer install
 
       - name: Run linter
         run: |
