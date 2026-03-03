@@ -3,6 +3,7 @@ name: PHP Docker Tests (PostgreSQL)
 on:
   push:
     branches: [develop, main]
+  pull_request:
 
 jobs:
   tests:
